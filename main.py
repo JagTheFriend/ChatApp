@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, join_room, leave_room
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+room = "main"
 
 
 @app.route('/')
@@ -13,7 +14,7 @@ def home():
 @app.route('/chat')
 def chat():
     username = request.args.get('username')
-    room = request.args.get('room')
+    # room = request.args.get('room')
 
     if username and room:
         return render_template('chat.html', username=username, room=room)
