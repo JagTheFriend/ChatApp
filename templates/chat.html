@@ -2,8 +2,12 @@
 <html lang="en">
 
 <head>
+    <link href="../static/chat.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>My Chat App</title>
+    <center>
+        <h1 class="h2 mb-3 font-weight-normal">Welcome to chat room {{ username }}</h1>
+    </center>
 </head>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
@@ -15,7 +19,6 @@
             username: "{{ username }}",
             room: "{{ room }}"
         });
-
         let message_input = document.getElementById('message_input');
         document.getElementById('message_input_form').onsubmit = function(e) {
             e.preventDefault();
@@ -60,14 +63,14 @@
 </script>
 
 <body>
-    <h1>Welcome to chat room {{ username }}</h1>
+    <center>
+        <div id="messages"></div>
 
-    <div id="messages"></div>
-
-    <form id="message_input_form">
-        <input type="text" id="message_input" placeholder="Enter your message here..." required autofocus>
-        <button type="submit">Send</button>
-    </form>
+        <form id="message_input_form">
+            <input type="text" class="message_input" id="message_input" placeholder="Enter your message here..." required autofocus>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+        </form>
+    </center>
 </body>
 
 </html>
